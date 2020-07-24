@@ -1,3 +1,34 @@
-// Place all the styles related to the reminders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+#reminder {
+  max-width: 300px;
+  margin: 10px;
+  padding: 10px 15px;
+  background: #ebeaee;
+  box-shadow: 2px 1.5px 5px rgba(0, 0, 0, .3);
+  color: #323135;
+  transition: all .2s ease;
+
+  &:hover {
+    background: #e9e8ea;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+  }
+
+  &.completed {
+    background: #dbefde;
+
+    &:hover {
+      background: #d9efde;
+    }
+  }
+
+  .title {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;;
+  }
+
+  .status {
+    font-size: 12px;
+    color: #aaa;
+    text-align: right;
+  }
+}

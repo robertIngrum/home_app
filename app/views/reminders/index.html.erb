@@ -5,20 +5,11 @@
 REMINDERS
 
 <div>
-  <% current_user.reminders.each do |reminder| %>
-    <div>
-      <div>
-        Title: <%= reminder.title %>
-      </div>
-      <div>
-        Description:
-        <%= reminder.description %>
-      </div>
-
-      <div>
-        Status: <%= reminder.status %>
-      </div>
-    </div>
+  <% current_user.reminders.map do |reminder| %>
+    <%= react_component("Reminder",
+                        { title:       reminder.title,
+                          description: reminder.description,
+                          status:      reminder.status }) %>
   <% end %>
 </div>
 
