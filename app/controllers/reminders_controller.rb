@@ -1,5 +1,7 @@
 class RemindersController < ApplicationController
-  def index; end
+  def index
+    render locals: { reminder: Reminder.find_by(params[:id]) }
+  end
 
   def create
     reminder = Reminder.create(user_id: current_user.id, **create_params)
@@ -11,7 +13,7 @@ class RemindersController < ApplicationController
     else
       flash[:error] = "Error: #{reminder.errors.full_messages.join('. ')}."
 
-      render action: :index #, status: 401, locals: { reminder: reminder } }
+      rendirect_to action: :index
     end
   end
 
