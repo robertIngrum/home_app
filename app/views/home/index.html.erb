@@ -1,3 +1,12 @@
 <div>
-    Hello world
+  Hello <%= current_user.username %>!
+</div>
+
+<div>
+  Pages:
+
+  <ul>
+    <li><%= link_to "Home", "/" %></li>
+    <li><%= link_to "Reminders", "/reminders" %></li>
+  </ul>
 </div>

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_151852) do
+ActiveRecord::Schema.define(version: 2020_07_24_041425) do
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "completed"
+    t.datetime "completed_at"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -36,4 +46,5 @@ ActiveRecord::Schema.define(version: 2020_07_23_151852) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "reminders", "users"
 end

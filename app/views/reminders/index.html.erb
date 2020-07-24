@@ -1,0 +1,33 @@
+<%
+  reminder ||= Reminder.new
+%>
+
+REMINDERS
+
+<div>
+  <% current_user.reminders.each do |reminder| %>
+    <div>
+      <div>
+        Title: <%= reminder.title %>
+      </div>
+      <div>
+        Description:
+        <%= reminder.description %>
+      </div>
+
+      <div>
+        Status: <%= reminder.status %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= form_with model: reminder, local: true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  </br>
+  <%= f.submit 'Create' %>
+<% end %>
